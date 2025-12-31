@@ -1,4 +1,5 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
+import { useEffect } from "react";
 import Layout from "../../components/Layout";
 import AdSlot from "../../components/AdSlot";
 import { getArticleBySlug, getArticles, type Article } from "../../lib/articles";
@@ -30,6 +31,19 @@ export const getStaticProps: GetStaticProps<ArticlePageProps> = async ({ params 
 };
 
 export default function ArticlePage({ article }: ArticlePageProps) {
+  useEffect(() => {
+    const controller = new AbortController();
+
+    fetch(`/api/articles/${article.slug}/view`, {
+      method: "POST",
+      signal: controller.signal
+    }).catch(() => {
+      // Swallow view errors to avoid impacting the article render.
+    });
+
+    return () => controller.abort();
+  }, [article.slug]);
+
   return (
     <Layout>
       <article className="grid gap-10 lg:grid-cols-[2fr_1fr]">
@@ -50,6 +64,7 @@ export default function ArticlePage({ article }: ArticlePageProps) {
           <div className="flex items-center gap-4 text-xs uppercase tracking-[0.25em] text-ink/50">
             <span>{article.author}</span>
             <span>{new Date(article.publishedAt).toLocaleDateString()}</span>
+            <span>{article.viewsLast24h.toLocaleString()} reads (24h)</span>
           </div>
           <p className="text-lg leading-relaxed text-ink/80">{article.content}</p>
           <AdSlot className="border border-ink/10 bg-white/80 p-6" />

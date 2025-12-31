@@ -13,3 +13,12 @@ CREATE TABLE IF NOT EXISTS articles (
 
 CREATE INDEX IF NOT EXISTS articles_views_last_24h_idx ON articles (views_last_24h DESC);
 CREATE INDEX IF NOT EXISTS articles_published_at_idx ON articles (published_at DESC);
+
+CREATE TABLE IF NOT EXISTS article_views (
+  id SERIAL PRIMARY KEY,
+  article_id INTEGER NOT NULL REFERENCES articles(id) ON DELETE CASCADE,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS article_views_article_id_idx ON article_views (article_id);
+CREATE INDEX IF NOT EXISTS article_views_created_at_idx ON article_views (created_at DESC);

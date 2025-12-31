@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:setup": "node scripts/migrate.js",
+    "db:seed": "node scripts/seed.js"
   },
   "dependencies": {
     "@vercel/blob": "0.25.0",
