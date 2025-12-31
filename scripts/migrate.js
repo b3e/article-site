@@ -1,6 +1,9 @@
 const fs = require("fs");
 const path = require("path");
+const dotenv = require("dotenv");
 const { sql } = require("@vercel/postgres");
+
+dotenv.config({ path: path.join(process.cwd(), ".env") });
 
 function splitStatements(raw) {
   return raw

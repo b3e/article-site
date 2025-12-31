@@ -1,6 +1,9 @@
 const fs = require("fs");
 const path = require("path");
+const dotenv = require("dotenv");
 const { sql } = require("@vercel/postgres");
+
+dotenv.config({ path: path.join(process.cwd(), ".env") });
 
 async function seed() {
   const dataPath = path.join(process.cwd(), "data", "articles.json");
