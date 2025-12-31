@@ -1,0 +1,57 @@
+[
+  {
+    "id": "1",
+    "title": "Market jitters return as inflation data surprises",
+    "slug": "market-jitters-return",
+    "excerpt": "Investors brace for another week of volatility after fresh inflation data rattled global markets.",
+    "content": "The latest inflation figures landed hotter than expected, sparking concern among investors. Analysts say the numbers could delay anticipated rate cuts and keep markets uneasy. Economists are watching upcoming wage data for confirmation that price pressures remain elevated.",
+    "category": "Business",
+    "author": "Harriet Cole",
+    "publishedAt": "2024-07-18T08:30:00.000Z",
+    "viewsLast24h": 5321
+  },
+  {
+    "id": "2",
+    "title": "Storm systems raise flood risk along the coast",
+    "slug": "storm-systems-raise-flood-risk",
+    "excerpt": "Officials warn of potential flooding as a second storm system arrives overnight.",
+    "content": "Emergency services have issued coastal alerts as two storm systems converge, bringing heavy rainfall and gusty winds. Residents in low-lying areas are urged to prepare sandbags and monitor local guidance as conditions intensify.",
+    "category": "Weather",
+    "author": "Jordan Patel",
+    "publishedAt": "2024-07-18T05:10:00.000Z",
+    "viewsLast24h": 4210
+  },
+  {
+    "id": "3",
+    "title": "City council unveils housing acceleration plan",
+    "slug": "city-council-housing-acceleration",
+    "excerpt": "A new plan aims to fast-track permits and unlock new affordable housing developments.",
+    "content": "City leaders announced a multi-pronged plan to accelerate housing construction, including streamlined permitting and dedicated funding for infrastructure upgrades. Housing advocates welcomed the effort but stressed the need for long-term affordability protections.",
+    "category": "Politics",
+    "author": "Mara Nguyen",
+    "publishedAt": "2024-07-17T17:45:00.000Z",
+    "viewsLast24h": 3189
+  },
+  {
+    "id": "4",
+    "title": "Inside the lab building batteries that charge in minutes",
+    "slug": "lab-building-fast-charge-batteries",
+    "excerpt": "Researchers say their new chemistry could bring rapid charging to electric vehicles.",
+    "content": "Scientists unveiled a prototype battery that can reach 80 percent charge in under ten minutes. The team says the materials remain stable under repeated cycles and could scale for automotive use within three years.",
+    "category": "Science",
+    "author": "Elliot Fray",
+    "publishedAt": "2024-07-17T12:20:00.000Z",
+    "viewsLast24h": 2864
+  },
+  {
+    "id": "5",
+    "title": "Studio profile: the designers shaping modern jazz",
+    "slug": "studio-profile-designers-shaping-modern-jazz",
+    "excerpt": "A new generation of designers is redefining the visual language of jazz.",
+    "content": "From album covers to stage lighting, contemporary designers are blending archival motifs with digital experimentation. Their work is bringing jazz to younger audiences while honoring the genre's roots.",
+    "category": "Culture",
+    "author": "Sofia Ruiz",
+    "publishedAt": "2024-07-16T20:00:00.000Z",
+    "viewsLast24h": 1987
+  }
+]
