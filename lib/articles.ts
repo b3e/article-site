@@ -16,9 +16,9 @@ export type Article = {
 const normalizeArticle = (article: Article): Article => ({
   ...article,
   publishedAt:
-    article.publishedAt instanceof Date
-      ? article.publishedAt.toISOString()
-      : article.publishedAt
+    (article.publishedAt as any) instanceof Date
+      ? new Date(article.publishedAt).toISOString()
+      : article.publishedAt,
 });
 
 export async function getArticles(): Promise<Article[]> {
@@ -80,7 +80,9 @@ export async function getTopArticles(limit = 4): Promise<Article[]> {
   return rows.map(normalizeArticle);
 }
 
-export async function createArticle(input: Omit<Article, "id">): Promise<Article> {
+export async function createArticle(
+  input: Omit<Article, "id">
+): Promise<Article> {
   const { rows } = await sql<Article>`
     INSERT INTO articles (
       title,
