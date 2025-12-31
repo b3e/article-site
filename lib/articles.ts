@@ -13,6 +13,14 @@ export type Article = {
   imageUrl: string | null;
 };
 
+const normalizeArticle = (article: Article): Article => ({
+  ...article,
+  publishedAt:
+    article.publishedAt instanceof Date
+      ? article.publishedAt.toISOString()
+      : article.publishedAt
+});
+
 export async function getArticles(): Promise<Article[]> {
   const { rows } = await sql<Article>`
     SELECT
@@ -29,7 +37,7 @@ export async function getArticles(): Promise<Article[]> {
     FROM articles
     ORDER BY published_at DESC
   `;
-  return rows;
+  return rows.map(normalizeArticle);
 }
 
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
@@ -49,7 +57,7 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
     WHERE slug = ${slug}
     LIMIT 1
   `;
-  return rows[0] ?? null;
+  return rows[0] ? normalizeArticle(rows[0]) : null;
 }
 
 export async function getTopArticles(limit = 4): Promise<Article[]> {
@@ -69,7 +77,7 @@ export async function getTopArticles(limit = 4): Promise<Article[]> {
     ORDER BY views_last_24h DESC
     LIMIT ${limit}
   `;
-  return rows;
+  return rows.map(normalizeArticle);
 }
 
 export async function createArticle(input: Omit<Article, "id">): Promise<Article> {
